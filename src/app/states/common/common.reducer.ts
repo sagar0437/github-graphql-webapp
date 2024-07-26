@@ -3,20 +3,24 @@ import * as CommonActions from './common.action';
 import { IData } from '../../common/models/common.model';
 
 export interface CommonState {
-  details: IData | undefined;
+  repos: IData | undefined;
   error: string | null;
 }
 
 export const initialCommonState: CommonState = {
-  details: undefined,
+  repos: undefined,
   error: null,
 };
 
 export const CommonReducer = createReducer(
   initialCommonState,
-  on(CommonActions.getSampleDataSuccess, (state, { details }) => ({
+  on(CommonActions.getGithubReposSuccess, (state, { repos }) => ({
     ...state,
-    details,
+    repos,
     error: null,
+  })),
+  on(CommonActions.getGithubReposFailure, (state, { errorMessage }) => ({
+    ...state,
+    error: errorMessage,
   }))
 );

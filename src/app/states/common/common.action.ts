@@ -1,11 +1,14 @@
 import { createAction, props } from '@ngrx/store';
 
-export const getSampleData = createAction('Get data');
-export const getSampleDataSuccess = createAction(
-  'Get data Success',
-  props<{ details: any }>()
+export const getGithubRepos = createAction(
+  'Get Github Repos',
+  props<{ gitHubUser: string }>()
 );
-export const getSampleDataFailure = createAction(
-  'Get data Failure',
+export const getGithubReposSuccess = createAction(
+  'Get Github Repos Success',
+  props<{ repos: any }>()
+);
+export const getGithubReposFailure = createAction(
+  'Get Github Repos Failure',
   props<{ errorMessage: string }>()
 );

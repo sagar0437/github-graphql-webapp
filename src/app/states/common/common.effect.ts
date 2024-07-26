@@ -11,19 +11,17 @@ export class CommonEffect {
 
   loadUser$ = createEffect(() =>
     this.action$.pipe(
-      ofType(CommonActions.getSampleData),
-      switchMap(() =>
-        this.api.getSampleData().pipe(
-          map((res) => {
-            console.log('res', res);
-
-            return CommonActions.getSampleDataSuccess({
-              details: res,
+      ofType(CommonActions.getGithubRepos),
+      switchMap((payload) =>
+        this.api.getRepos(payload.gitHubUser).pipe(
+          map((res: any) => {
+            return CommonActions.getGithubReposSuccess({
+              repos: res.data.user.repositories.nodes,
             });
           }),
           catchError((error: any) =>
             of(
-              CommonActions.getSampleDataFailure({
+              CommonActions.getGithubReposFailure({
                 errorMessage: error?.error?.message,
               })
             )

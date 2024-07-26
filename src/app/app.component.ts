@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { getSampleData } from './states/common/common.action';
 import { CommonModule } from '@angular/common';
+import { ApolloModule } from 'apollo-angular';
+import { getGithubRepos } from './states/common/common.action';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,6 @@ export class AppComponent {
   title = 'github-graphql-webapp';
   private store = inject(Store);
   constructor() {
-    this.store.dispatch(getSampleData());
+    this.store.dispatch(getGithubRepos({ gitHubUser: 'jwasham' }));
   }
 }

@@ -1,16 +1,34 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
+
+const GET_REPOS = gql`
+  query ($user: String!) {
+    user(login: $user) {
+      repositories(first: 100) {
+        nodes {
+          name
+          stargazerCount
+          forkCount
+          url
+        }
+      }
+    }
+  }
+`;
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommonService {
-  constructor(private http: HttpClient) {}
+  constructor(private apollo: Apollo) {}
 
-  public getSampleData(): Observable<any> {
-    return this.http.get(
-      'https://www.omdbapi.com/?i=tt3896198&apikey=f17df20b'
-    );
+  getRepos(user: string) {
+    return this.apollo.watchQuery({
+      query: GET_REPOS,
+      variables: {
+        user,
+      },
+    }).valueChanges;
   }
 }
