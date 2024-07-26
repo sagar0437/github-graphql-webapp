@@ -3,7 +3,7 @@ import * as CommonActions from './common.action';
 import { IData } from '../../common/models/common.model';
 
 export interface CommonState {
-  repos: IData | undefined;
+  repos: IData[] | undefined;
   error: string | null;
 }
 

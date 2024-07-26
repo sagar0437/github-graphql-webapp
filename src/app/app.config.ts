@@ -16,6 +16,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { apolloProviders } from './apollo.config';
 import { ApolloModule } from 'apollo-angular';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -28,5 +29,6 @@ export const appConfig: ApplicationConfig = {
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     importProvidersFrom(ApolloModule),
     ...apolloProviders,
+    provideAnimationsAsync(),
   ],
 };

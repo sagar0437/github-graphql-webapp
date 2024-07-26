@@ -1,0 +1,14 @@
+<div class="container">
+  <ag-grid-angular
+    style="width: 100%; height: 500px"
+    class="ag-theme-quartz"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    rowSelection="multiple"
+    [animateRows]="true"
+    [pagination]="true"
+    [paginationPageSize]="10"
+    [defaultColDef]="defaultColDef"
+  >
+  </ag-grid-angular>
+</div>
