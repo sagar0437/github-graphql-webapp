@@ -46,7 +46,6 @@ export class RepositoryTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.select(selectReposList).subscribe((repos) => {
-      console.log('wef', repos);
       if (repos && repos.length) {
         this.rowData = repos;
         this.filteredRowData = repos;

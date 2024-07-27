@@ -13,6 +13,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { filter } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -43,13 +44,14 @@ export class AppComponent {
           case 'chart':
             this.title = 'Repository Bar Chart';
             break;
+          case 'error':
+            this.title = '';
+            break;
           default:
             this.title = 'Repository Data';
             break;
         }
       });
-    this.store.dispatch(getGithubRepos({ gitHubUser: 'sindresorhus' }));
-    // this.store.dispatch(getGithubRepos({ gitHubUser: 'jwasham' }));
-    // this.store.dispatch(getGithubRepos({ gitHubUser: 'sagar0437' }));
+    this.store.dispatch(getGithubRepos({ gitHubUser: environment.gitHubUser }));
   }
 }

@@ -9,6 +9,7 @@ import {
 import { Store } from '@ngrx/store';
 import { selectReposList } from '../../states/common/common.selector';
 import * as d3 from 'd3';
+import { IRepository } from '../../common/models/common.model';
 
 @Component({
   selector: 'app-repository-bar-chart',
@@ -20,7 +21,7 @@ import * as d3 from 'd3';
 export class RepositoryBarChartComponent implements OnInit, AfterViewInit {
   @ViewChild('chart', { static: true }) chartContainer!: ElementRef;
   private store = inject(Store);
-  repos!: any[];
+  repos!: IRepository[];
   chartWidth!: number;
   svg: any;
 
@@ -71,9 +72,9 @@ export class RepositoryBarChartComponent implements OnInit, AfterViewInit {
       .call(d3.axisBottom(x));
 
     xAxis
-      .selectAll('text') // Select all text elements for the x-axis
-      .attr('transform', 'rotate(-45)') // Rotate them 45 degrees
-      .style('text-anchor', 'end') // Align text to the end
+      .selectAll('text')
+      .attr('transform', 'rotate(-45)')
+      .style('text-anchor', 'end')
       .style('font-size', '10px');
 
     const yAxis = g
@@ -93,18 +94,18 @@ export class RepositoryBarChartComponent implements OnInit, AfterViewInit {
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('x', (d: { name: string }) => x(d.name) || 0) // Ensure x(d.name) is not undefined
+      .attr('x', (d: { name: string }) => x(d.name) || 0)
       .attr(
         'y',
         (d: { stargazerCount: d3.NumberValue }) => y(d.stargazerCount) || 0
-      ) // Ensure y(d.stargazerCount) is not undefined
+      )
       .attr('width', x.bandwidth())
       .attr(
         'height',
         (d: { stargazerCount: d3.NumberValue }) =>
           height - (y(d.stargazerCount) || 0)
-      ) // Ensure y(d.stargazerCount) is not undefined
-      .attr('fill', '#25407a'); // Color scale
+      )
+      .attr('fill', '#25407a');
   }
 
   private onResize() {
