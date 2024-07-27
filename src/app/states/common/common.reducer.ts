@@ -22,5 +22,5 @@ export const CommonReducer = createReducer(
   on(CommonActions.getGithubReposFailure, (state, { errorMessage }) => ({
     ...state,
     error: errorMessage,
-  }))
+  })),
 );

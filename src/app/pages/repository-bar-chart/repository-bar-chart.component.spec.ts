@@ -8,9 +8,8 @@ describe('RepositoryBarChartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RepositoryBarChartComponent]
-    })
-    .compileComponents();
+      imports: [RepositoryBarChartComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RepositoryBarChartComponent);
     component = fixture.componentInstance;

@@ -97,13 +97,13 @@ export class RepositoryBarChartComponent implements OnInit, AfterViewInit {
       .attr('x', (d: { name: string }) => x(d.name) || 0)
       .attr(
         'y',
-        (d: { stargazerCount: d3.NumberValue }) => y(d.stargazerCount) || 0
+        (d: { stargazerCount: d3.NumberValue }) => y(d.stargazerCount) || 0,
       )
       .attr('width', x.bandwidth())
       .attr(
         'height',
         (d: { stargazerCount: d3.NumberValue }) =>
-          height - (y(d.stargazerCount) || 0)
+          height - (y(d.stargazerCount) || 0),
       )
       .attr('fill', '#25407a');
   }

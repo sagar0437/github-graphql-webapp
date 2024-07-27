@@ -23,7 +23,10 @@ const GET_REPOS = gql`
   providedIn: 'root',
 })
 export class CommonService {
-  constructor(private apollo: Apollo, private router: Router) {}
+  constructor(
+    private apollo: Apollo,
+    private router: Router,
+  ) {}
 
   getRepos(user: string) {
     return this.apollo
@@ -37,7 +40,7 @@ export class CommonService {
         catchError((error) => {
           this.router.navigate(['/error']);
           return of(null);
-        })
+        }),
       );
   }
 }

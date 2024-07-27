@@ -1,17 +1,23 @@
-@import 'ag-grid-community/styles/ag-grid.css';
-@import 'ag-grid-community/styles/ag-theme-quartz.css';
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-quartz.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: "Heebo", sans-serif; background: #F6F7F8}
-:root {
-  --lato: 'Lato', sans-serif;
-  --latoMedium: 'Lato-Medium', sans-serif;
-  --latoBold: 'Lato-Bold', sans-serif;
-  --Primary : #263D89;
-  --Secondary: #44546F;
-  --Tertiary : #626F86;
-  --Disabled: #B3B9C4;
-  --Error : #E34935;
-  --Separator: #DCDFE4;
+html,
+body {
+  height: 100%;
 }
-
+body {
+  margin: 0;
+  font-family: "Heebo", sans-serif;
+  background: #f6f7f8;
+}
+:root {
+  --lato: "Lato", sans-serif;
+  --latoMedium: "Lato-Medium", sans-serif;
+  --latoBold: "Lato-Bold", sans-serif;
+  --Primary: #263d89;
+  --Secondary: #44546f;
+  --Tertiary: #626f86;
+  --Disabled: #b3b9c4;
+  --Error: #e34935;
+  --Separator: #dcdfe4;
+}

@@ -23,11 +23,11 @@ export class CommonEffect {
             of(
               CommonActions.getGithubReposFailure({
                 errorMessage: error?.error?.message,
-              })
-            )
-          )
-        )
-      )
-    )
+              }),
+            ),
+          ),
+        ),
+      ),
+    ),
   );
 }

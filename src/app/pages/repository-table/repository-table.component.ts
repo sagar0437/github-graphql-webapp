@@ -67,7 +67,7 @@ export class RepositoryTableComponent implements OnInit {
           item.stargazerCount
             .toString()
             .toLowerCase()
-            .includes(searchTerm.toLowerCase())
+            .includes(searchTerm.toLowerCase()),
       );
     }
   }

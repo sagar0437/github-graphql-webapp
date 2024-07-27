@@ -6,7 +6,7 @@ export const routes: Routes = [
     path: 'table',
     loadComponent: () =>
       import('./pages/repository-table/repository-table.component').then(
-        (m) => m.RepositoryTableComponent
+        (m) => m.RepositoryTableComponent,
       ),
   },
   {
@@ -20,7 +20,7 @@ export const routes: Routes = [
     path: 'error',
     loadComponent: () =>
       import('./pages/error-page/error-page.component').then(
-        (m) => m.ErrorPageComponent
+        (m) => m.ErrorPageComponent,
       ),
   },
 ];
