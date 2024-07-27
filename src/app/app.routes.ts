@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'table', pathMatch: 'full' },
+  { path: '', redirectTo: 'chart', pathMatch: 'full' },
   {
     path: 'table',
     loadComponent: () =>

@@ -6,12 +6,13 @@
     display: flex;
   align-items: center;
   justify-content: space-between;
-    background: linear-gradient(to right, #a1baf0, #feb47b);
-    padding: 22px 32px;
+    background: #fff;
+    padding: 22px 120px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    span {
+    .logo span {
       font-size: 22px;
+      color: var(--Primary);
 }
     }
 
@@ -20,22 +21,38 @@
       margin: 0;
       padding: 0;
       display: flex;
-      gap: 15px;
+      gap: 30px;
     }
 
     .nav-menu ul li {
       display: inline;
       cursor: pointer;
+      color: var(--Disabled);
+      font-size: 22px;
     }
 
     .nav-menu ul li a {
       text-decoration: none;
-      color: white;
+      color: #fff;
       font-weight: bold;
       padding: 8px 12px;
       border-radius: 4px;
     }
 
-    .nav-menu ul li a:hover {
-      background: rgba(255, 255, 255, 0.2);
+    .nav-menu ul li span:hover {
+      color: var(--Primary);
+    }
+    .nav-menu .active {
+      color: var(--Primary);
+    }
+
+    .mat-card-container {
+      margin: 22px 120px;
+      background: #fff;
+      mat-card-title {
+        color: var(--Primary);
+      }
+      mat-card-header {
+        padding-left: 46px;
+      }
     }

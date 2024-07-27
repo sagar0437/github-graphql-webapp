@@ -2,4 +2,16 @@
 @import 'ag-grid-community/styles/ag-theme-quartz.css';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "Heebo", sans-serif; background: #F6F7F8}
+:root {
+  --lato: 'Lato', sans-serif;
+  --latoMedium: 'Lato-Medium', sans-serif;
+  --latoBold: 'Lato-Bold', sans-serif;
+  --Primary : #263D89;
+  --Secondary: #44546F;
+  --Tertiary : #626F86;
+  --Disabled: #B3B9C4;
+  --Error : #E34935;
+  --Separator: #DCDFE4;
+}
+

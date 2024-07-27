@@ -4,9 +4,16 @@
   </div>
   <nav class="nav-menu">
     <ul>
-      <li><span routerLink="/table">Table</span></li>
-      <li><span routerLink="/chart">Chart</span></li>
+      <li><span routerLink="/table" routerLinkActive="active">Table</span></li>
+      <li><span routerLink="/chart" routerLinkActive="active">Chart</span></li>
     </ul>
   </nav>
 </header>
-<router-outlet></router-outlet>
+<mat-card appearance="raised" class="mat-card-container">
+  <mat-card-header>
+    <mat-card-title>{{ title | titlecase }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <router-outlet></router-outlet>
+  </mat-card-content>
+</mat-card>

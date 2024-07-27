@@ -1,9 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
 import * as CommonActions from './common.action';
-import { IData } from '../../common/models/common.model';
+import { IRepository } from '../../common/models/common.model';
 
 export interface CommonState {
-  repos: IData[] | undefined;
+  repos: IRepository[] | undefined;
   error: string | null;
 }
 

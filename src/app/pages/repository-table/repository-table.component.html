@@ -1,8 +1,19 @@
 <div class="container">
+  <div class="search__wrapper">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <mat-icon matPrefix>search</mat-icon>
+      <input
+        placeholder="Search by name and star count"
+        matInput
+        [formControl]="searchControl"
+      />
+    </mat-form-field>
+  </div>
   <ag-grid-angular
-    style="width: 100%; height: 500px"
+    style="width: 100%; height: 519px"
     class="ag-theme-quartz"
-    [rowData]="rowData"
+    [rowData]="filteredRowData"
     [columnDefs]="columnDefs"
     rowSelection="multiple"
     [animateRows]="true"
