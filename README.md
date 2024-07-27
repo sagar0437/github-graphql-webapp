@@ -46,6 +46,7 @@ Here you list all prerequisites necessary for running your project. For example:
 
 How to clone your project
 
+Repo Url: https://github.com/sagar0437/github-graphql-webapp
 ```bash
 git clone https://github.com/sagar0437/github-graphql-webapp.git
 ```
