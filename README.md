@@ -1,32 +1,79 @@
-# GithubGraphqlWebapp
+                  
+ 
+<h1 align="center" style="font-weight: bold;">Github Repository   💻</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
+<p align="center">
+<a href="#tech">Technologies</a>
+<a href="#started">Getting Started</a>
+<a href="#colab">Collaborators</a>
+ 
+</p>
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<p align="center">Angular application that fetches data from GitHub's GraphQL API, displays it using AG Grid, and visualizes it using D3.js</p>
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ 
+<h2 id="layout">🎨 Layout</h2>
 
-## Build
+<p align="center">
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<img src="https://iili.io/dIx5Sd7.png" alt="Image1" width="400px">
+<img src="https://iili.io/dIx5vgS.png" alt="Image2" width="400px">
+</p>
+ 
+<h2 id="technologies">💻 Technologies</h2>
 
-## Running unit tests
+- Angular v18
+- NgRx
+- Angular Material
+- Ag-grid
+- D3.js
+ 
+<h2 id="started">🚀 Getting started</h2>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+.
+ 
+<h3>Prerequisites</h3>
 
-## Running end-to-end tests
+Here you list all prerequisites necessary for running your project. For example:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Angular CLI
+- NodeJs
+- Github Auth Token
+ 
+<h3>Cloning</h3>
 
-## Further help
+How to clone your project
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+git clone https://github.com/sagar0437/github-graphql-webapp.git
+```
+ 
+<h3>Starting</h3>
 
-## some repo accounts
+How to start your project
+1. Update environment.ts file with your Github token.
 
-jwasham
-ojeytonwilliams
+```bash
+npm install
+
+npm run start
+```
+Navigate to http://localhost:4200/. The application will automatically reload if you change any of the source files.
+ 
+<h2 id="colab">🤝 Collaborators</h2>
+<table>
+<tr>
+
+<td align="center">
+<a href="https://github.com/sagar0437">
+<img src="https://avatars.githubusercontent.com/u/63859431?v=4" width="100px;" alt="Sagar Girhepunje Profile Picture"/><br>
+<sub>
+<b>Sagar Girhepunje</b>
+</sub>
+</a>
+</td>
+
+</tr>
+</table>
