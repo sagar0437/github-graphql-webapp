@@ -40,7 +40,8 @@ export class AppComponent {
 
         this.title = event.urlAfterRedirects.replace('/', '');
       });
-    this.store.dispatch(getGithubRepos({ gitHubUser: 'jwasham' }));
+    this.store.dispatch(getGithubRepos({ gitHubUser: 'sindresorhus' }));
+    // this.store.dispatch(getGithubRepos({ gitHubUser: 'jwasham' }));
     // this.store.dispatch(getGithubRepos({ gitHubUser: 'sagar0437' }));
   }
 }

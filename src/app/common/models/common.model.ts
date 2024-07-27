@@ -1,7 +1,3 @@
-export interface IData {
-  name: string;
-}
-
 export interface IRepository {
   forkCount: number;
   name: string;

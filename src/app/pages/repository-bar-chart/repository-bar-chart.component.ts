@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   inject,
@@ -16,21 +17,24 @@ import * as d3 from 'd3';
   templateUrl: './repository-bar-chart.component.html',
   styleUrl: './repository-bar-chart.component.scss',
 })
-export class RepositoryBarChartComponent implements OnInit {
+export class RepositoryBarChartComponent implements OnInit, AfterViewInit {
   @ViewChild('chart', { static: true }) chartContainer!: ElementRef;
   private store = inject(Store);
   repos!: any[];
+  chartWidth!: number;
+  svg: any;
 
   ngOnInit(): void {
     this.store.select(selectReposList).subscribe((repos) => {
       if (repos && repos.length) {
-        this.repos = repos.filter(
-          (d) => d.name !== 'coding-interview-university'
-        );
-
+        this.repos = repos;
         this.createChart();
       }
     });
+  }
+
+  ngAfterViewInit() {
+    window.addEventListener('resize', this.onResize.bind(this));
   }
 
   createChart() {
@@ -39,17 +43,18 @@ export class RepositoryBarChartComponent implements OnInit {
     const element = this.chartContainer.nativeElement;
     d3.select(element).select('svg').remove();
 
-    const svg = d3
+    this.chartWidth = element.getBoundingClientRect().width;
+    this.svg = d3
       .select(element)
       .append('svg')
-      .attr('width', 800)
+      .attr('width', this.chartWidth)
       .attr('height', 600)
       .attr('overflow', 'visible');
 
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
-    const width = +svg.attr('width') - margin.left - margin.right;
-    const height = +svg.attr('height') - margin.top - margin.bottom;
-    const g = svg
+    const width = +this.svg.attr('width') - margin.left - margin.right;
+    const height = +this.svg.attr('height') - margin.top - margin.bottom;
+    const g = this.svg
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
@@ -88,10 +93,23 @@ export class RepositoryBarChartComponent implements OnInit {
       .enter()
       .append('rect')
       .attr('class', 'bar')
-      .attr('x', (d) => x(d.name) || 0) // Ensure x(d.name) is not undefined
-      .attr('y', (d) => y(d.stargazerCount) || 0) // Ensure y(d.stargazerCount) is not undefined
+      .attr('x', (d: { name: string }) => x(d.name) || 0) // Ensure x(d.name) is not undefined
+      .attr(
+        'y',
+        (d: { stargazerCount: d3.NumberValue }) => y(d.stargazerCount) || 0
+      ) // Ensure y(d.stargazerCount) is not undefined
       .attr('width', x.bandwidth())
-      .attr('height', (d) => height - (y(d.stargazerCount) || 0)) // Ensure y(d.stargazerCount) is not undefined
+      .attr(
+        'height',
+        (d: { stargazerCount: d3.NumberValue }) =>
+          height - (y(d.stargazerCount) || 0)
+      ) // Ensure y(d.stargazerCount) is not undefined
       .attr('fill', '#25407a'); // Color scale
+  }
+
+  private onResize() {
+    this.chartWidth =
+      this.chartContainer.nativeElement.getBoundingClientRect().width;
+    this.createChart();
   }
 }
