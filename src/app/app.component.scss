@@ -10,9 +10,19 @@
     padding: 22px 120px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    .logo {
+      display: flex;
+      gap: 8px;
+    img {
+      width: 32px;
+      height: 32px;
+      align-self: center;
+      filter: brightness(0) saturate(100%) invert(24%) sepia(14%) saturate(7341%) hue-rotate(211deg) brightness(81%) contrast(95%);
+    }}
     .logo span {
       font-size: 22px;
       color: var(--Primary);
+      align-self: center;
 }
     }
 

@@ -36,9 +36,17 @@ export class AppComponent {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
-        console.log('edfedf', event);
-
-        this.title = event.urlAfterRedirects.replace('/', '');
+        switch (event.urlAfterRedirects.replace('/', '')) {
+          case 'title':
+            this.title = 'Repository Data';
+            break;
+          case 'chart':
+            this.title = 'Repository Bar Chart';
+            break;
+          default:
+            this.title = 'Repository Data';
+            break;
+        }
       });
     this.store.dispatch(getGithubRepos({ gitHubUser: 'sindresorhus' }));
     // this.store.dispatch(getGithubRepos({ gitHubUser: 'jwasham' }));
