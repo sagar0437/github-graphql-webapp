@@ -1,5 +1,5 @@
 export const environment = {
-  token: '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',
+  token: 'YOUR_GITHUB_TOKEN',
   apiUrl: 'https://api.github.com/graphql',
   // gitHubUser: 'YOUR_GITHUB_USER',
   // example github user
